@@ -134,6 +134,6 @@ In this lesson, we explored how to solve the **Graph Coloring Problem** using th
 Now that you understand how to solve the Graph Coloring problem using backtracking, how might you apply these techniques to other constraint satisfaction problems you encounter in the real world?
 
 Additional Resources for you:
-*   https://www.tutorialspoint.com/data_structures_algorithms/n_queen_problem.htm
-*   https://garycordero1690.medium.com/the-n-queen-problem-8322c68f39b4
-*   https://youtu.be/ZulXRl_csPA?feature=shared
+*   https://brilliant.org/wiki/graph-coloring-and-chromatic-numbers/#:~:text=A%20graph%20coloring%20is%20an,such%20an%20assignment%20is%20possible
+*   https://medium.com/analytics-vidhya/graph-coloring-and-applications-2157912f505d
+*   https://youtu.be/AbUoq0LpW34?feature=shared
