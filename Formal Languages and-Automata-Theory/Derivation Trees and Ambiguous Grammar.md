@@ -1,4 +1,3 @@
-```
 ---
 input:
   schema:
@@ -125,41 +124,37 @@ Let's trace "100":
 See how the machine follows one single, absolutely predictable path determined *only* by the input symbols it reads and its strict, one-answer rules? It never has to guess or choose between paths!
 
 We can think about the step-by-step logic a computer would follow to do this processing. We can write this logic down in **pseudo-code**. Pseudo-code isn't real code for any specific programming language; it's just a way to write down the steps clearly in simple English so we can understand the process logic:
-
-```
 // Imagine all the DFA's rules (states, alphabet, transitions, start state, final states)
 // are organized neatly in a structure we'll call 'the_dfa_rules'.
 
 // This is a process (like a small recipe) to check a string using our DFA:
 function check_string_with_DFA (the_string_we_want_to_check, the_dfa_rules):
 
-  // Step 1: Get Set: Start at the very beginning state, as defined by the DFA rules.
-  current_state = the_dfa_rules.start_state
+// Step 1: Get Set: Start at the very beginning state, as defined by the DFA rules.
+current_state = the_dfa_rules.start_state
 
-  // Step 5: Keep Going Until Done: Now, we'll look at each symbol in the string,
-  // one by one, starting from the left.
-  for each symbol in the_string_we_want_to_check:
+// Step 5: Keep Going Until Done: Now, we'll look at each symbol in the string,
+// one by one, starting from the left.
+for each symbol in the_string_we_want_to_check:
 
-    // Steps 3 & 4: Check the Rulebook and Make Your Determined Move:
-    // We ask the rulebook ('the_dfa_rules.transition_function'):
-    // "If I am in this 'current_state' and I read this 'symbol', where do I go?"
-    // IMPORTANT: The rulebook *always* has exactly ONE answer for this!
-    the_one_and_only_next_state = look_up_in_the_rulebook (current_state, symbol)
+// Steps 3 & 4: Check the Rulebook and Make Your Determined Move:
+// We ask the rulebook ('the_dfa_rules.transition_function'):
+// "If I am in this 'current_state' and I read this 'symbol', where do I go?"
+// IMPORTANT: The rulebook *always* has exactly ONE answer for this!
+the_one_and_only_next_state = look_up_in_the_rulebook (current_state, symbol)
 
-    // Now, move the machine to that single, certain next state.
-    current_state = the_one_and_only_next_state
+// Now, move the machine to that single, certain next state.
+current_state = the_one_and_only_next_state
+// Steps 6 & 7: Where Did You Land? Decide Accept or Reject:
+// We've finished reading all the symbols. The machine is in its final 'current_state'.
+// Is this final state one of the special 'final_states' listed in our DFA rules?
+if current_state is included in the_dfa_rules.final_states:
+// Yes! The string led us to a winning state.
+return "Accepted" // The string fits the pattern!
+else:
+// No, the final state is not a winning state.
+return "Rejected" // The string does not fit the pattern.
 
-  // Steps 6 & 7: Where Did You Land? Decide Accept or Reject:
-  // We've finished reading all the symbols. The machine is in its final 'current_state'.
-  // Is this final state one of the special 'final_states' listed in our DFA rules?
-  if current_state is included in the_dfa_rules.final_states:
-    // Yes! The string led us to a winning state.
-    return "Accepted" // The string fits the pattern!
-  else:
-    // No, the final state is not a winning state.
-    return "Rejected" // The string does not fit the pattern.
-
-```
 
 This **pseudo-code** clearly shows the simple, certain logic: start at the defined beginning state, process each input symbol using the strict, one-answer rules to find the *only* next state, and finally, check if the machine ended its journey on a winning state. Simple, predictable, and easy to follow!
 
@@ -247,4 +242,3 @@ We walked through the step-by-step process of how a **DFA** reads an input strin
 So, **DFAs** are fantastic tools when the rules for recognizing a pattern are crystal clear and always lead to a single, definite next step. They are predictable, efficient, and powerful for recognizing simple patterns known as **regular languages**.
 
 But what if a pattern was a little more complicated, or what if designing a predictable DFA felt too complex? What if a machine didn't *have* to be so rigid? What if, from one state, reading a symbol *could* potentially lead to *more than one* possible next state? Or what if it could even change its state *without* reading any input symbol at all? That kind of machine exists! It's less predictable than a DFA, but sometimes its flexibility makes it simpler to design for certain tasks, and it opens up new possibilities that we'll explore in our next lesson! Stay curious!
-
